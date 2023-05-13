@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+
+option go_package = "pb/ficsithub";
+
+service FicsitHub {
+  rpc GetAllPioneers(Empty) returns (PioneersList) {}
+}
+
+message Empty {}
+
+message PioneersList {
+  repeated Pioneer pioneers = 1;
+}
+
+message Pioneer {
+  string username = 1;
+}
