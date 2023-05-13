@@ -1,6 +1,4 @@
-const client = require('../client')
-
-const path = require('path')
+const client = require('./client')
 const express = require('express')
 const bodyParser = require('body-parser')
 
@@ -10,13 +8,11 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
-  const { month } = req.body
-
-  client.calculateBendingType({ month: month }, (err, data) => {
+  client.GetAllPioneers(null, (err, data) => {
     if (err) {
       return res.status(500).json({ message: err.message })
     }
-    return res.status(200).json({ message: data.message })
+    return res.status(200).send(data.pioneers)
   })
 })
 

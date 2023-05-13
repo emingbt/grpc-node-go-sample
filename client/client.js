@@ -1,4 +1,4 @@
-const PROTO_PATH = '../bending/bending.proto'
+const PROTO_PATH = '../proto/ficsithub.proto'
 
 const grpc = require('@grpc/grpc-js')
 const protoLoader = require('@grpc/proto-loader')
@@ -11,6 +11,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   oneofs: true
 })
 
-const BendingService = grpc.loadPackageDefinition(packageDefinition).bending
-const client = new BendingService.Bending('localhost:50051', grpc.credentials.createInsecure())
+const FicsitHub = grpc.loadPackageDefinition(packageDefinition).FicsitHub
+const client = new FicsitHub('localhost:50051', grpc.credentials.createInsecure())
+
 module.exports = client
