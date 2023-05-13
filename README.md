@@ -24,5 +24,5 @@ To run client:
   ```
 - Run client
   ```
-  node index.js
+  npm run dev
   ```
